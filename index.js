@@ -8,6 +8,10 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  for (var key in obj){
+    obj[key] = obj[key].trim();
+  }
+  return {...obj};
 }
 
 /**
@@ -19,7 +23,12 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
+  // ✨ implementfunction trimProperties(obj) {
   // ✨ implement
+  for (var key in obj){
+    obj[key] = obj[key].trim();
+  }
+  return obj;
 }
 
 /**
@@ -32,7 +41,15 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  let highest = 0;
+  for( let i=0; i<integers.length; i++){
+   if(integers[i] > highest ){
+     highest = integers[i];
+   }
+  }
+  return highest;
 }
+//console.log(findLargestInteger([2, 1, 7, 3, 14, 7]));
 
 class Counter {
   /**
@@ -41,6 +58,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber;
   }
 
   /**
@@ -57,8 +75,14 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    if(this.count >= 0){
+      this.count-- ;
+    }else {
+      return 0;
+    }
   }
 }
+
 
 class Seasons {
   /**
@@ -66,6 +90,8 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.seasons = [ 'summer', 'fall', 'winter', 'spring']
+    this.data = -1;
   }
 
   /**
@@ -82,6 +108,11 @@ class Seasons {
    */
   next() {
     // ✨ implement
+    this.data += 1;
+    if(this.data > 3){
+      this.data =0;
+    }
+    return this.seasons[this.data]
   }
 }
 
@@ -96,6 +127,8 @@ class Car {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.mpg = mpg
+  
   }
 
   /**
