@@ -37,6 +37,10 @@ describe('[Exercise 2] trimPropertiesMutation', () => {
 describe('[Exercise 3] findLargestInteger', () => {
   it('[5] returns the largest number in an array of numbers', () => {
     // ✨ test away
+    const input = [1,4,6,10,15];
+    const expected = 15;
+    const actual = utils.findLargestInteger(input);
+    expect(actual).toEqual(expected);
   })
 })
 
@@ -47,12 +51,25 @@ describe('[Exercise 4] Counter', () => {
   })
   it('[6] the FIRST CALL of counter.countDown returns the initial count', () => {
     // ✨ test away
+    const expected = 3;
+    const actual = counter.count;
+    expect(actual).toEqual(expected);
   })
   it('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
     // ✨ test away
+    const expected = 2;
+    counter.countDown();
+    const actual = counter.count;
+    expect(actual).toEqual(expected);
   })
   it('[8] the count eventually reaches zero but does not go below zero', () => {
     // ✨ test away
+    const expected = 0;
+    counter.countDown();
+    counter.countDown();
+    counter.countDown();
+    const actual = counter.count;
+    expect(actual).toEqual(expected);
   })
 })
 
@@ -63,21 +80,52 @@ describe('[Exercise 5] Seasons', () => {
   })
   it('[9] the FIRST call of seasons.next returns "summer"', () => {
     // ✨ test away
+    const expected = "summer";
+    const actual = seasons.next();
+    expect(actual).toEqual(expected);
   })
   it('[10] the SECOND call of seasons.next returns "fall"', () => {
     // ✨ test away
+    const expected = "fall";
+    seasons.next();
+    const actual = seasons.next();
+    expect(actual).toEqual(expected);
   })
   it('[11] the THIRD call of seasons.next returns "winter"', () => {
     // ✨ test away
+    const expected = "winter";
+    seasons.next();
+    seasons.next();
+    const actual = seasons.next();
+    expect(actual).toEqual(expected);
   })
   it('[12] the FOURTH call of seasons.next returns "spring"', () => {
     // ✨ test away
+    const expected = "spring";
+    seasons.next();
+    seasons.next();
+    seasons.next();
+    const actual = seasons.next();
+    expect(actual).toEqual(expected);
   })
   it('[13] the FIFTH call of seasons.next returns again "summer"', () => {
     // ✨ test away
+    const expected = "summer";
+    seasons.next();
+    seasons.next();
+    seasons.next();
+    seasons.next();
+    const actual = seasons.next();
+    expect(actual).toEqual(expected);
   })
   it('[14] the 40th call of seasons.next returns "spring"', () => {
-    // ✨ test away
+    // ✨ test away  
+    const expected = "spring";
+   for( let i = 0;i < 39; i++ ){
+     seasons.next();
+   }    
+    const actual = seasons.next();
+    expect(actual).toEqual(expected);
   })
 })
 
@@ -88,6 +136,8 @@ describe('[Exercise 6] Car', () => {
   })
   it('[15] driving the car returns the updated odometer', () => {
     // ✨ test away
+    focus.drive(100)
+    expect(focus.odometer).toEqual(100)
   })
   it('[16] driving the car uses gas', () => {
     // ✨ test away
