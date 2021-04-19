@@ -141,21 +141,32 @@ describe('[Exercise 6] Car', () => {
   })
   it('[16] driving the car uses gas', () => {
     // ✨ test away
+    focus.drive(10000)
+      expect(focus.tank).toEqual(0)
   })
   it('[17] refueling allows to keep driving', () => {
     // ✨ test away
+    focus.tank = 0;
+    let miles = focus.refuel(0);
+    expect(miles).toEqual(0);
+    expect(focus.refuel(5)).toEqual(5*focus.mpg)
   })
   it('[18] adding fuel to a full tank has no effect', () => {
     // ✨ test away
+    let miles = focus.refuel(100);
+    expect(miles).toEqual(focus.tank * focus.mpg)
   })
 })
 
 describe('[Exercise 7] isEvenNumberAsync', () => {
   it('[19] resolves true if passed an even number', () => {
-    // ✨ test away
+    // ✨ test awaytest
+
+    expect(result).toEqual(false)
   })
   it('[20] resolves false if passed an odd number', () => {
     // ✨ test away
+
   })
   it('[21] rejects an error with the message "number must be a number" if passed a non-number type', () => {
     // ✨ test away
