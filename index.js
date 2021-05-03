@@ -189,10 +189,22 @@ class Car {
  *    // error.message is "number must be a number"
  * })
  */
+
 function isEvenNumberAsync(number) {
   // ✨ implement
-  
+  if(typeof number != 'number'){
+    return 'number must be number';
+  }else if(Number.isNaN(number)){
+    return 'number must be number';
+  }
+  if(number % 2 == 0){
+    return Promise.resolve(true);
+  }else {
+    return Promise.resolve(false);
+  }
 }
+
+
 
 module.exports = {
   trimProperties,
